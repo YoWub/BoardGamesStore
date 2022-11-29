@@ -57,7 +57,7 @@ public class SampleReceipt {
         if(boardGameCart.size() > 0) {
             for(BoardGame boardGame: boardGameCart) {
                 System.out.println(boardGame);
-                System.out.println("  Frame Color: " + boardGame.getColor());
+                System.out.println("  Dice Color: " + boardGame.getColor());
                 System.out.println("  Serial #: " + boardGame.getModel());
                 total += boardGame.getPrice();
                 if(boardGame.getExpansionName() != null) {

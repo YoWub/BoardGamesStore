@@ -1,10 +1,7 @@
 package main;
 
 import controller.InventoryGenerator;
-import model.Avatars;
-import model.BoardExpansion;
-import model.BoardGame;
-import model.CardPackExpansion;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -79,17 +76,17 @@ public class SampleOrder {
     }
 
     private void offerUpgrades() {
-        System.out.println("We offer upgrades for your bicycles besides the gold frame color");
-        System.out.println("We offer the following:\nls - leather seat\nlg - leather grips\n +" +
-                "wt - for white tires\nnone - for no upgrades");
+        System.out.println("We offer upgrades for your Dices besides dice color.");
+        System.out.println("We offer the following:\nCE - Card Expansion\nBE - Board Expansion" +
+                "\nDE - Dice Side Count Changes\nnone - for no upgrades");
         String upgrade = userIn.next();
         validateUpgrade(upgrade);
     }
 
     private void customDiceOffer(BoardGame boardGame) {
-        System.out.println("Our boardGames come with a default paint color.");
-        System.out.println("Your current frame color is " + boardGame.getColor().toString().toLowerCase());
-        System.out.println("Would you like this boardGame with a different frame color. yes or no");
+        System.out.println("Our Dices come with a default paint color.");
+        System.out.println("Your current dice color is " + boardGame.getColor().toString().toLowerCase());
+        System.out.println("Would you like this dice with a different color. yes or no");
         String choice = userIn.next();
         switch (choice.toLowerCase()) {
             case "yes":
@@ -184,11 +181,14 @@ public class SampleOrder {
 
     private void validateUpgrade(String upgrade) {
         switch (upgrade.toLowerCase()) {
-            case "ls":
+            case "CE":
                 boardGameChoice = new CardPackExpansion(boardGameChoice);
                 break;
-            case "lg":
+            case "BE":
                 boardGameChoice = new BoardExpansion(boardGameChoice);
+                break;
+            case "DE":
+                boardGameChoice = new DiceSides(boardGameChoice);
                 break;
             case "none":
                 break;
@@ -217,7 +217,7 @@ public class SampleOrder {
                 inventory.getPiratesOceansList().remove(0);
                 break;
             default:
-                System.out.println("You have entered n incorrect type");
+                System.out.println("You have entered an incorrect type");
                 buyBoardGame();
         }
     }

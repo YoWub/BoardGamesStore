@@ -2,16 +2,15 @@ package model;
 
 import main.CustomDice;
 
-public class CardPackExpansion extends ExpansionPack{
+public class DiceSides extends ExpansionPack{
 
-    public CardPackExpansion(BoardGame game) {
+    public DiceSides(BoardGame game) {
         super(game);
-        setColor();
     }
 
     @Override
     public String getExpansionName() {
-        return "Card Expansion Upgrade";
+        return "Sides Expansion Upgrade";
     }
 
     @Override

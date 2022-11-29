@@ -49,7 +49,7 @@ public abstract class BoardGame implements PriceInterface, BoardGameInterface {
 
     @Override
     public void provideTutorial() {
-        System.out.println("We provide web links to instructional videos on how to play our board games.");
+        System.out.println("We provide web links to instructional videos on how to play our Board Games.");
     }
 
     @Override
