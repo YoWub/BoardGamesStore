@@ -1,5 +1,6 @@
 package main;
 
+import controller.AvatarBuilder;
 import controller.InventoryGenerator;
 import model.*;
 
@@ -62,17 +63,6 @@ public class SampleOrder {
         System.out.println("Do you want to buy any Avatars?");
         String answer = userIn.next();
         validateOffer(answer);
-    }
-
-    private void buyAvatars() {
-        System.out.println("What Avatars are you interested in ?");
-        System.out.println("Your options are:\nh - Helmet\ng - Gloves\n" +
-                "b - bell\nbk - basket\nt - tire pump\nbh - bottle + holder" +
-                "l - lights");
-        String item = userIn.next();
-        validateAvatar(item.toLowerCase());
-        avatarOrder.add(boardGameExtra);
-        moreAvatars();
     }
 
     private void offerUpgrades() {
@@ -139,7 +129,9 @@ public class SampleOrder {
         switch (val) {
             case "yes":
                 boardGameExtra = null;
-                buyAvatars();
+//                buyAvatars();
+                AvatarBuilder avatarBuilder = new AvatarBuilder();
+                avatarBuilder.avatarBuildWelcome();
                 break;
             case "no":
                 orderDone();
@@ -153,7 +145,9 @@ public class SampleOrder {
     private void validateOffer(String answer) {
         switch(answer) {
             case "yes":
-                buyAvatars();
+//                buyAvatars();
+                AvatarBuilder avatarBuilder = new AvatarBuilder();
+                avatarBuilder.avatarBuildWelcome();
                 break;
             case "no":
                 break;
@@ -222,39 +216,12 @@ public class SampleOrder {
         }
     }
 
-    private void validateAvatar (String choice) {
-        switch (choice) {
-            case "h":
-                boardGameExtra = new Avatars("Helmet", 29.99);
-                break;
-            case "g":
-                boardGameExtra = new Avatars("Gloves", 19.99);
-                break;
-            case "b":
-                boardGameExtra = new Avatars("Bell", 9.99);
-                break;
-            case "bk":
-                boardGameExtra = new Avatars("Basket", 29.99);
-                break;
-            case "t":
-                boardGameExtra = new Avatars("Tire Pump", 39.99);
-                break;
-            case "bh":
-                boardGameExtra = new Avatars("Bottle & Holder", 34.99);
-                break;
-            case "l":
-                boardGameExtra = new Avatars("Gloves", 36.99);
-                break;
-            default:
-                System.out.println("You have entered an invalid choice");
-                buyAvatars();
-        }
-    }
-
     private void validateSomething(String type) {
         switch (type) {
             case "1":
-                buyAvatars();
+//                buyAvatars();
+                AvatarBuilder avatarBuilder = new AvatarBuilder();
+                avatarBuilder.avatarBuildWelcome();
                 break;
             case "2":
                 buyBoardGame();

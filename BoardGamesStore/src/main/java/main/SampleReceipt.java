@@ -44,7 +44,9 @@ public class SampleReceipt {
     private void showAvatarCart() {
         if(avatarCart.size() > 0) {
             for(Avatars item: avatarCart) {
-                System.out.print("  " + item.getItemName());
+                System.out.print("  " + item.armorColor + " " + item.armorType + " "
+                        + item.hairColor + " " + item.species + " " + item.classification
+                        + " " + item.weaponChoice);
                 String price = String.format("%27s", "$" + item.getPrice());
                 System.out.print(price);
                 System.out.println();
